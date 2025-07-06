@@ -2,7 +2,12 @@ const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
 const morgan = require('morgan');
-require('dotenv').config();
+// Load environment variables if .env file exists
+try {
+  require('dotenv').config();
+} catch (error) {
+  console.log('No .env file found, using default values');
+}
 
 const connectDB = require('./config/database');
 const errorHandler = require('./middleware/errorHandler');
@@ -51,6 +56,7 @@ app.use('*', (req, res) => {
 });
 
 const PORT = process.env.PORT || 5000;
+const JWT_SECRET = process.env.JWT_SECRET || 'your_jwt_secret_key_here_change_in_production';
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
