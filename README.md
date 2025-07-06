@@ -38,7 +38,16 @@ A modern, AI-inspired web application for managing tasks and expenses with a bea
 - **Responsive design** for all devices
 - **Emoji icons** for better visual appeal
 - **Backdrop blur** and modern shadows
-- **AI-inspired color scheme** 
+- **AI-inspired color scheme**
+
+### Images : 
+![image](https://github.com/user-attachments/assets/f7a9e630-0a64-47aa-8f5a-15cef3f7e627)
+
+![image](https://github.com/user-attachments/assets/ad480a18-2ab5-434a-9538-1d57fea6a8ab)
+
+![image](https://github.com/user-attachments/assets/4e13aa8a-3d38-45dd-b4a8-7a841fcafe11)
+
+![image](https://github.com/user-attachments/assets/2a2dbd7b-4fed-414f-9d23-ca469fdf441b)
 
 ## 🚀 Quick Start
 
@@ -233,20 +242,6 @@ npm run build
 3. Make your changes
 4. Test thoroughly
 5. Submit a pull request
-
-## 📝 License
-
-This project is licensed under the MIT License.
-
-## 🙏 Acknowledgments
-
-- **React** for the frontend framework
-- **Express.js** for the backend API
-- **MongoDB** for the database
-- **Tailwind CSS** for styling
-- **JWT** for authentication
-
----
 
 <div align="center">
 
