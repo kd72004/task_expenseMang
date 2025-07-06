@@ -11,7 +11,7 @@ A modern, AI-inspired web application for managing tasks and expenses with a bea
 
 ### 🔐 Authentication System
 - **Secure Login/Signup** with JWT tokens
-- **Local Storage** management (without sensitive data)
+- **Local Storage** management 
 - **Automatic token refresh** and error handling
 - **Protected routes** and user sessions
 
@@ -26,7 +26,7 @@ A modern, AI-inspired web application for managing tasks and expenses with a bea
 
 ### 💰 Expense Management
 - **Complete CRUD operations** for expenses
-- **Category-based organization** (13 predefined categories)
+- **Category-based organization**
 - **Amount tracking** in Indian Rupees (₹)
 - **Date-based filtering** and search
 - **Expense statistics** and analytics
@@ -38,7 +38,7 @@ A modern, AI-inspired web application for managing tasks and expenses with a bea
 - **Responsive design** for all devices
 - **Emoji icons** for better visual appeal
 - **Backdrop blur** and modern shadows
-- **AI-inspired color scheme** (Purple to Blue gradients)
+- **AI-inspired color scheme** 
 
 ## 🚀 Quick Start
 
@@ -250,9 +250,6 @@ This project is licensed under the MIT License.
 
 <div align="center">
 
-**Made with ❤️ and ☕ by [Your Name]**
-
-[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/yourusername)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/yourusername)
+**Made with ❤️ and ☕ by Kalyani Dave**
 
 </div> 
