@@ -1,6 +1,6 @@
 const Task = require('../models/Task');
 
-// Create task
+
 const createTask = async (req, res) => {
   try {
     const { name, description, priority, deadline, status } = req.body;
@@ -21,7 +21,7 @@ const createTask = async (req, res) => {
   }
 };
 
-// Get all tasks for current user
+
 const getTasks = async (req, res) => {
   try {
     const { status, priority } = req.query;
@@ -38,7 +38,7 @@ const getTasks = async (req, res) => {
   }
 };
 
-// Get single task
+
 const getTask = async (req, res) => {
   try {
     const task = await Task.findOne({ _id: req.params.id, user: req.user._id });
@@ -54,7 +54,7 @@ const getTask = async (req, res) => {
   }
 };
 
-// Update task
+
 const updateTask = async (req, res) => {
   try {
     const { name, description, priority, deadline, status } = req.body;
@@ -78,7 +78,7 @@ const updateTask = async (req, res) => {
   }
 };
 
-// Update task status
+
 const updateTaskStatus = async (req, res) => {
   try {
     const { status } = req.body;
@@ -99,7 +99,7 @@ const updateTaskStatus = async (req, res) => {
   }
 };
 
-// Delete task
+
 const deleteTask = async (req, res) => {
   try {
     const task = await Task.findOne({ _id: req.params.id, user: req.user._id });
@@ -116,7 +116,7 @@ const deleteTask = async (req, res) => {
   }
 };
 
-// Get task statistics
+
 const getTaskStats = async (req, res) => {
   try {
     const totalTasks = await Task.countDocuments({ user: req.user._id });

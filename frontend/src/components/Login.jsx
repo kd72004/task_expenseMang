@@ -24,13 +24,13 @@ const Login = ({ onLogin, switchToSignup }) => {
     try {
       const response = await api.post('/auth/login', formData);
       
-      // Remove _id from the payload before storing in localStorage
+  
       const { _id, ...userData } = response.data;
       
-      // Store user data in localStorage
+      
       localStorage.setItem('user', JSON.stringify(userData));
       
-      // Call the onLogin callback to update parent component
+    
       onLogin(userData);
       
     } catch (error) {

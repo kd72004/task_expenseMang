@@ -9,7 +9,6 @@ function App() {
   const [isLogin, setIsLogin] = useState(true)
 
   useEffect(() => {
-    // Check if user is already logged in (from localStorage)
     const storedUser = localStorage.getItem('user')
     if (storedUser) {
       setUser(JSON.parse(storedUser))
@@ -36,12 +35,10 @@ function App() {
     setIsLogin(true)
   }
 
-  // If user is logged in, show dashboard
   if (user) {
     return <Dashboard user={user} onLogout={handleLogout} />
   }
 
-  // If user is not logged in, show login or signup
   return (
     <>
       {isLogin ? (

@@ -46,7 +46,7 @@ const TaskList = ({ onEditTask, onDeleteTask, onStatusChange }) => {
     if (window.confirm('Are you sure you want to delete this task?')) {
       try {
         await api.delete(`/tasks/${taskId}`);
-        fetchTasks(); // Refresh the list
+        fetchTasks();
         if (onDeleteTask) onDeleteTask(taskId);
       } catch (error) {
         setError('Failed to delete task');
@@ -89,7 +89,7 @@ const TaskList = ({ onEditTask, onDeleteTask, onStatusChange }) => {
 
   return (
     <div className="space-y-6">
-      {/* Filters and Search */}
+    
       <div className="bg-white/80 backdrop-blur-md p-6 rounded-2xl shadow-xl border border-white/20">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           <div>
@@ -147,7 +147,7 @@ const TaskList = ({ onEditTask, onDeleteTask, onStatusChange }) => {
         </div>
       </div>
 
-      {/* Error Message */}
+   
       {error && (
         <div className="bg-gradient-to-r from-red-50 to-pink-50 border border-red-200 text-red-800 px-6 py-4 rounded-xl shadow-lg backdrop-blur-sm">
           <div className="flex items-center space-x-3">
@@ -157,7 +157,7 @@ const TaskList = ({ onEditTask, onDeleteTask, onStatusChange }) => {
         </div>
       )}
 
-      {/* Tasks List */}
+     
       <div className="space-y-4">
         {filteredTasks.length === 0 ? (
           <div className="text-center py-12">

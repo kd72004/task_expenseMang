@@ -1,6 +1,6 @@
 # 🎯💰 Task & Expense Manager
 
-A modern, AI-inspired web application for managing tasks and expenses with a beautiful gradient UI and real-time updates.
+A modern web application for managing tasks and expenses with a beautiful gradient UI and real-time updates.
 
 ![Task & Expense Manager](https://img.shields.io/badge/React-19.1.0-blue?style=for-the-badge&logo=react)
 ![Node.js](https://img.shields.io/badge/Node.js-Express-green?style=for-the-badge&logo=node.js)
@@ -11,7 +11,7 @@ A modern, AI-inspired web application for managing tasks and expenses with a bea
 
 ### 🔐 Authentication System
 - **Secure Login/Signup** with JWT tokens
-- **Local Storage** management (without sensitive data)
+- **Local Storage** management 
 - **Automatic token refresh** and error handling
 - **Protected routes** and user sessions
 
@@ -26,7 +26,7 @@ A modern, AI-inspired web application for managing tasks and expenses with a bea
 
 ### 💰 Expense Management
 - **Complete CRUD operations** for expenses
-- **Category-based organization** (13 predefined categories)
+- **Category-based organization**
 - **Amount tracking** in Indian Rupees (₹)
 - **Date-based filtering** and search
 - **Expense statistics** and analytics
@@ -38,7 +38,16 @@ A modern, AI-inspired web application for managing tasks and expenses with a bea
 - **Responsive design** for all devices
 - **Emoji icons** for better visual appeal
 - **Backdrop blur** and modern shadows
-- **AI-inspired color scheme** (Purple to Blue gradients)
+- **AI-inspired color scheme**
+
+### Images : 
+![image](https://github.com/user-attachments/assets/f7a9e630-0a64-47aa-8f5a-15cef3f7e627)
+
+![image](https://github.com/user-attachments/assets/ad480a18-2ab5-434a-9538-1d57fea6a8ab)
+
+![image](https://github.com/user-attachments/assets/4e13aa8a-3d38-45dd-b4a8-7a841fcafe11)
+
+![image](https://github.com/user-attachments/assets/2a2dbd7b-4fed-414f-9d23-ca469fdf441b)
 
 ## 🚀 Quick Start
 
@@ -120,7 +129,7 @@ task_expenseManag/
 - `GET /api/auth/profile` - Get user profile
 
 ### Tasks
-- `GET /api/tasks` - Get all tasks (with filters)
+- `GET /api/tasks` - Get all tasks
 - `POST /api/tasks` - Create new task
 - `GET /api/tasks/:id` - Get single task
 - `PUT /api/tasks/:id` - Update task
@@ -129,30 +138,13 @@ task_expenseManag/
 - `GET /api/tasks/stats` - Get task statistics
 
 ### Expenses
-- `GET /api/expenses` - Get all expenses (with filters)
+- `GET /api/expenses` - Get all expenses
 - `POST /api/expenses` - Create new expense
 - `GET /api/expenses/:id` - Get single expense
 - `PUT /api/expenses/:id` - Update expense
 - `DELETE /api/expenses/:id` - Delete expense
 - `GET /api/expenses/stats` - Get expense statistics
 - `GET /api/expenses/categories` - Get expense categories
-
-## 🎨 UI Components
-
-### Modern Design Elements
-- **Glassmorphism cards** with backdrop blur
-- **Gradient buttons** with hover effects
-- **Smooth transitions** and animations
-- **Emoji icons** for better UX
-- **Responsive grid layouts**
-- **Modern form inputs** with focus states
-
-### Color Scheme
-- **Primary**: Purple to Blue gradients
-- **Success**: Green gradients
-- **Error**: Red to Pink gradients
-- **Background**: Slate to Blue gradients
-- **Cards**: White with transparency
 
 ## 🔒 Security Features
 
@@ -203,56 +195,6 @@ task_expenseManag/
 }
 ```
 
-## 🚀 Deployment
-
-### Backend Deployment
-```bash
-# Set environment variables
-NODE_ENV=production
-MONGODB_URI=your_mongodb_uri
-JWT_SECRET=your_secure_secret
-PORT=5000
-
-# Start production server
-npm start
-```
-
-### Frontend Deployment
-```bash
-# Build for production
-npm run build
-
-# Deploy to your preferred platform
-# (Vercel, Netlify, AWS, etc.)
-```
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
-
-## 📝 License
-
-This project is licensed under the MIT License.
-
-## 🙏 Acknowledgments
-
-- **React** for the frontend framework
-- **Express.js** for the backend API
-- **MongoDB** for the database
-- **Tailwind CSS** for styling
-- **JWT** for authentication
-
----
-
-<div align="center">
-
-**Made with ❤️ and ☕ by [Your Name]**
-
-[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/yourusername)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/yourusername)
+**Made with ❤️ and ☕ by Kalyani Dave**
 
 </div> 

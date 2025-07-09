@@ -3,7 +3,7 @@ import TaskList from './TaskList';
 import TaskForm from './TaskForm';
 import ExpenseList from './ExpenseList';
 import ExpenseForm from './ExpenseForm';
-// import api from '../utils/api';
+
 
 const Dashboard = ({ user, onLogout }) => {
   const [userData, setUserData] = useState(user);
@@ -13,13 +13,12 @@ const Dashboard = ({ user, onLogout }) => {
   const [refreshTasks, setRefreshTasks] = useState(0);
   const [successMessage, setSuccessMessage] = useState('');
   
-  // Expense states
   const [showExpenseForm, setShowExpenseForm] = useState(false);
   const [editingExpense, setEditingExpense] = useState(null);
   const [refreshExpenses, setRefreshExpenses] = useState(0);
 
   useEffect(() => {
-    // Get user data from localStorage on component mount
+
     const storedUser = localStorage.getItem('user');
     if (storedUser) {
       setUserData(JSON.parse(storedUser));
@@ -27,9 +26,9 @@ const Dashboard = ({ user, onLogout }) => {
   }, []);
 
   const handleLogout = () => {
-    // Clear localStorage
+   
     localStorage.removeItem('user');
-    // Call the onLogout callback
+  
     onLogout();
   };
 
@@ -46,11 +45,11 @@ const Dashboard = ({ user, onLogout }) => {
   const handleTaskSave = () => {
     setShowTaskForm(false);
     setEditingTask(null);
-    // Trigger task list refresh
+   
     setRefreshTasks(prev => prev + 1);
-    // Show success message
+   
     setSuccessMessage(editingTask ? 'Task updated successfully!' : 'Task created successfully!');
-    // Clear success message after 3 seconds
+    
     setTimeout(() => setSuccessMessage(''), 3000);
   };
 
@@ -73,11 +72,11 @@ const Dashboard = ({ user, onLogout }) => {
   const handleExpenseSave = () => {
     setShowExpenseForm(false);
     setEditingExpense(null);
-    // Trigger expense list refresh
+    
     setRefreshExpenses(prev => prev + 1);
-    // Show success message
+ 
     setSuccessMessage(editingExpense ? 'Expense updated successfully!' : 'Expense added successfully!');
-    // Clear success message after 3 seconds
+
     setTimeout(() => setSuccessMessage(''), 3000);
   };
 
@@ -88,7 +87,7 @@ const Dashboard = ({ user, onLogout }) => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
-      {/* Header Navigation */}
+     
       <nav className="bg-white/80 backdrop-blur-md border-b border-white/20 shadow-lg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16">
@@ -97,7 +96,7 @@ const Dashboard = ({ user, onLogout }) => {
                 Expense & Task Manager
               </h1>
               
-              {/* Navigation Tabs */}
+             
               <div className="flex space-x-2">
                 <button
                   onClick={() => setActiveTab('tasks')}
@@ -137,7 +136,6 @@ const Dashboard = ({ user, onLogout }) => {
         </div>
       </nav>
 
-      {/* Main Content */}
       <main className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
         <div className="px-4 py-6 sm:px-0">
           {activeTab === 'tasks' && (
@@ -152,7 +150,6 @@ const Dashboard = ({ user, onLogout }) => {
                 </div>
               )}
 
-              {/* Task Header */}
               <div className="flex justify-between items-center">
                 <h2 className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
                   🎯 Task Management
@@ -166,7 +163,7 @@ const Dashboard = ({ user, onLogout }) => {
                 </button>
               </div>
 
-              {/* Task Form Modal */}
+            
               {showTaskForm && (
                 <div className="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-50">
                   <div className="relative top-20 mx-auto p-5 border w-11/12 md:w-3/4 lg:w-1/2 shadow-lg rounded-md bg-white">
@@ -179,9 +176,9 @@ const Dashboard = ({ user, onLogout }) => {
                 </div>
               )}
 
-              {/* Task List */}
+            
               <TaskList
-                key={refreshTasks} // Force re-render when refreshTasks changes
+                key={refreshTasks}
                 onEditTask={handleEditTask}
                 onDeleteTask={() => setRefreshTasks(prev => prev + 1)}
                 onStatusChange={() => setRefreshTasks(prev => prev + 1)}
@@ -191,7 +188,7 @@ const Dashboard = ({ user, onLogout }) => {
 
           {activeTab === 'expenses' && (
             <div className="space-y-6">
-              {/* Success Message */}
+             
               {successMessage && (
                 <div className="bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 text-green-800 px-6 py-4 rounded-xl shadow-lg backdrop-blur-sm">
                   <div className="flex items-center space-x-3">
@@ -201,7 +198,7 @@ const Dashboard = ({ user, onLogout }) => {
                 </div>
               )}
 
-              {/* Expense Header */}
+              
               <div className="flex justify-between items-center">
                 <h2 className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
                   💰 Expense Management
@@ -215,7 +212,7 @@ const Dashboard = ({ user, onLogout }) => {
                 </button>
               </div>
 
-              {/* Expense Form Modal */}
+             
               {showExpenseForm && (
                 <div className="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-50">
                   <div className="relative top-20 mx-auto p-5 border w-11/12 md:w-3/4 lg:w-1/2 shadow-lg rounded-md bg-white">
@@ -228,9 +225,9 @@ const Dashboard = ({ user, onLogout }) => {
                 </div>
               )}
 
-              {/* Expense List */}
+             
               <ExpenseList
-                key={refreshExpenses} // Force re-render when refreshExpenses changes
+                key={refreshExpenses} 
                 onEditExpense={handleEditExpense}
                 onDeleteExpense={() => setRefreshExpenses(prev => prev + 1)}
               />

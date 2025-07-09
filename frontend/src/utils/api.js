@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-// Create axios instance with base configuration
+
 const api = axios.create({
   baseURL: 'http://localhost:5000/api',
   headers: {
@@ -8,7 +8,6 @@ const api = axios.create({
   },
 });
 
-// Add request interceptor to include auth token
 api.interceptors.request.use(
   (config) => {
     const user = JSON.parse(localStorage.getItem('user') || '{}');
@@ -21,13 +20,11 @@ api.interceptors.request.use(
     return Promise.reject(error);
   }
 );
-
-// Add response interceptor to handle auth errors
 api.interceptors.response.use(
   (response) => response,
   (error) => {
     if (error.response?.status === 401) {
-      // Token expired or invalid, clear localStorage and redirect to login
+      
       localStorage.removeItem('user');
       window.location.reload();
     }
