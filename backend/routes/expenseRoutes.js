@@ -12,10 +12,8 @@ const { protect } = require('../middleware/auth');
 
 const router = express.Router();
 
-// All routes are protected (require authentication)
 router.use(protect);
 
-// Expense CRUD routes
 router.route('/')
   .post(createExpense)
   .get(getExpenses);
