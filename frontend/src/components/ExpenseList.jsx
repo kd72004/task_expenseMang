@@ -96,7 +96,7 @@ const ExpenseList = ({ onEditExpense, onDeleteExpense }) => {
 
   return (
     <div className="space-y-6">
-      {/* Statistics */}
+ 
       {stats && (
         <div className="bg-white/80 backdrop-blur-md p-6 rounded-2xl shadow-xl border border-white/20">
           <h3 className="text-xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent mb-6">
@@ -121,7 +121,7 @@ const ExpenseList = ({ onEditExpense, onDeleteExpense }) => {
         </div>
       )}
 
-      {/* Filters and Search */}
+     
       <div className="bg-white/80 backdrop-blur-md p-6 rounded-2xl shadow-xl border border-white/20">
         <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
           <div>
@@ -197,7 +197,7 @@ const ExpenseList = ({ onEditExpense, onDeleteExpense }) => {
         </div>
       </div>
 
-      {/* Error Message */}
+     
       {error && (
         <div className="bg-gradient-to-r from-red-50 to-pink-50 border border-red-200 text-red-800 px-6 py-4 rounded-xl shadow-lg backdrop-blur-sm">
           <div className="flex items-center space-x-3">
@@ -207,7 +207,7 @@ const ExpenseList = ({ onEditExpense, onDeleteExpense }) => {
         </div>
       )}
 
-      {/* Expenses List */}
+      
       <div className="space-y-4">
         {filteredExpenses.length === 0 ? (
           <div className="text-center py-12">
