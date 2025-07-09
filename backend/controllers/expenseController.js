@@ -1,6 +1,5 @@
 const Expense = require('../models/Expense');
 
-// Create expense
 const createExpense = async (req, res) => {
   try {
     const { name, amount, description, date, category } = req.body;
@@ -21,7 +20,6 @@ const createExpense = async (req, res) => {
   }
 };
 
-// Get all expenses for current user
 const getExpenses = async (req, res) => {
   try {
     const { category, startDate, endDate } = req.query;
@@ -43,7 +41,6 @@ const getExpenses = async (req, res) => {
   }
 };
 
-// Get single expense
 const getExpense = async (req, res) => {
   try {
     const expense = await Expense.findOne({ _id: req.params.id, user: req.user._id });
@@ -59,7 +56,6 @@ const getExpense = async (req, res) => {
   }
 };
 
-// Update expense
 const updateExpense = async (req, res) => {
   try {
     const { name, amount, description, date, category } = req.body;
@@ -83,7 +79,6 @@ const updateExpense = async (req, res) => {
   }
 };
 
-// Delete expense
 const deleteExpense = async (req, res) => {
   try {
     const expense = await Expense.findOne({ _id: req.params.id, user: req.user._id });
@@ -100,7 +95,6 @@ const deleteExpense = async (req, res) => {
   }
 };
 
-// Get expense statistics
 const getExpenseStats = async (req, res) => {
   try {
     const { startDate, endDate } = req.query;
@@ -112,20 +106,20 @@ const getExpenseStats = async (req, res) => {
       if (endDate) query.date.$lte = new Date(endDate);
     }
 
-    // Total expenses
+
     const totalExpenses = await Expense.aggregate([
       { $match: query },
       { $group: { _id: null, total: { $sum: '$amount' } } }
     ]);
 
-    // Expenses by category
+  
     const expensesByCategory = await Expense.aggregate([
       { $match: query },
       { $group: { _id: '$category', total: { $sum: '$amount' }, count: { $sum: 1 } } },
       { $sort: { total: -1 } }
     ]);
 
-    // Monthly expenses
+  
     const monthlyExpenses = await Expense.aggregate([
       { $match: query },
       {
@@ -153,7 +147,6 @@ const getExpenseStats = async (req, res) => {
   }
 };
 
-// Get expense categories
 const getExpenseCategories = async (req, res) => {
   try {
     const categories = [
