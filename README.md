@@ -1,6 +1,6 @@
 # 🎯💰 Task & Expense Manager
 
-A modern, AI-inspired web application for managing tasks and expenses with a beautiful gradient UI and real-time updates.
+A modern web application for managing tasks and expenses with a beautiful gradient UI and real-time updates.
 
 ![Task & Expense Manager](https://img.shields.io/badge/React-19.1.0-blue?style=for-the-badge&logo=react)
 ![Node.js](https://img.shields.io/badge/Node.js-Express-green?style=for-the-badge&logo=node.js)
@@ -129,7 +129,7 @@ task_expenseManag/
 - `GET /api/auth/profile` - Get user profile
 
 ### Tasks
-- `GET /api/tasks` - Get all tasks (with filters)
+- `GET /api/tasks` - Get all tasks
 - `POST /api/tasks` - Create new task
 - `GET /api/tasks/:id` - Get single task
 - `PUT /api/tasks/:id` - Update task
@@ -138,7 +138,7 @@ task_expenseManag/
 - `GET /api/tasks/stats` - Get task statistics
 
 ### Expenses
-- `GET /api/expenses` - Get all expenses (with filters)
+- `GET /api/expenses` - Get all expenses
 - `POST /api/expenses` - Create new expense
 - `GET /api/expenses/:id` - Get single expense
 - `PUT /api/expenses/:id` - Update expense
@@ -211,39 +211,6 @@ task_expenseManag/
   updatedAt: Date
 }
 ```
-
-## 🚀 Deployment
-
-### Backend Deployment
-```bash
-# Set environment variables
-NODE_ENV=production
-MONGODB_URI=your_mongodb_uri
-JWT_SECRET=your_secure_secret
-PORT=5000
-
-# Start production server
-npm start
-```
-
-### Frontend Deployment
-```bash
-# Build for production
-npm run build
-
-# Deploy to your preferred platform
-# (Vercel, Netlify, AWS, etc.)
-```
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
-
-<div align="center">
 
 **Made with ❤️ and ☕ by Kalyani Dave**
 
