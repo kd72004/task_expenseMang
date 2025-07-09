@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 
 const generateToken = (id) => {
-  return jwt.sign({ id }, process.env.JWT_SECRET || 'your_jwt_secret_key_here_change_this_in_production', {
+  return jwt.sign({ id }, process.env.JWT_SECRET || '123', {
     expiresIn: process.env.JWT_EXPIRE || '7d',
   });
 };
