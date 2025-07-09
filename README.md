@@ -146,23 +146,6 @@ task_expenseManag/
 - `GET /api/expenses/stats` - Get expense statistics
 - `GET /api/expenses/categories` - Get expense categories
 
-## 🎨 UI Components
-
-### Modern Design Elements
-- **Glassmorphism cards** with backdrop blur
-- **Gradient buttons** with hover effects
-- **Smooth transitions** and animations
-- **Emoji icons** for better UX
-- **Responsive grid layouts**
-- **Modern form inputs** with focus states
-
-### Color Scheme
-- **Primary**: Purple to Blue gradients
-- **Success**: Green gradients
-- **Error**: Red to Pink gradients
-- **Background**: Slate to Blue gradients
-- **Cards**: White with transparency
-
 ## 🔒 Security Features
 
 - **JWT token authentication**
