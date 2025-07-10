@@ -20,9 +20,19 @@ A modern web application for managing tasks and expenses with a beautiful gradie
 - **Priority levels** (1-5 scale)
 - **Status tracking** (Pending, In Progress, Completed)
 - **Deadline management** with date picker
-- **Advanced filtering** by status and priority
+- **Task Assignment** - Assign tasks to other users
+- **Task Categorization** - Organize tasks by categories/projects
+- **Advanced filtering** by status, priority, category, and assignee
 - **Real-time search** functionality
 - **Beautiful task cards** with hover effects
+
+### 🔔 Notification System
+- **Real-time notifications** for task assignments
+- **Bell icon** with unread notification badge
+- **Dropdown notifications** panel
+- **Automatic notifications** when tasks are assigned/reassigned
+- **Visual indicators** for read/unread notifications
+- **Click to view** notification details
 
 ### 💰 Expense Management
 - **Complete CRUD operations** for expenses
@@ -127,6 +137,7 @@ task_expenseManag/
 - `POST /api/auth/signup` - User registration
 - `POST /api/auth/login` - User login
 - `GET /api/auth/profile` - Get user profile
+- `GET /api/auth/users` - Get all users (for task assignment)
 
 ### Tasks
 - `GET /api/tasks` - Get all tasks
@@ -136,6 +147,7 @@ task_expenseManag/
 - `PATCH /api/tasks/:id/status` - Update task status
 - `DELETE /api/tasks/:id` - Delete task
 - `GET /api/tasks/stats` - Get task statistics
+- `GET /api/tasks/notifications` - Get user notifications
 
 ### Expenses
 - `GET /api/expenses` - Get all expenses
@@ -176,8 +188,21 @@ task_expenseManag/
   priority: Number (1-5),
   deadline: Date,
   status: String (pending/in-progress/completed),
+  assignee: ObjectId (optional),
+  category: String (optional),
   createdAt: Date,
   updatedAt: Date
+}
+```
+
+### Notification Model
+```javascript
+{
+  user: ObjectId,
+  message: String,
+  task: ObjectId (optional),
+  read: Boolean (default: false),
+  createdAt: Date
 }
 ```
 
@@ -196,5 +221,3 @@ task_expenseManag/
 ```
 
 **Made with ❤️ and ☕ by Kalyani Dave**
-
-</div> 
