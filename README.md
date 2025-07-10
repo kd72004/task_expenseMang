@@ -47,7 +47,6 @@ A modern web application for managing tasks and expenses with a beautiful gradie
 - **Responsive design** for all devices
 - **Emoji icons** for better visual appeal
 - **Backdrop blur** and modern shadows
-- **AI-inspired color scheme**
 
 ### Images :
 ![image](https://github.com/user-attachments/assets/e2109526-87ef-4842-86e7-2cbe99924158)
