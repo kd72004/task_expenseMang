@@ -41,7 +41,6 @@ const Notifications = () => {
         )}
       </button>
 
-      {/* Dropdown Notifications */}
       {isOpen && (
         <div className="absolute right-0 mt-2 w-80 bg-white rounded-xl shadow-xl border border-gray-200 z-50">
           <div className="p-4 border-b border-gray-100">
@@ -107,8 +106,6 @@ const Notifications = () => {
           </div>
         </div>
       )}
-
-      {/* Click outside to close */}
       {isOpen && (
         <div 
           className="fixed inset-0 z-40" 

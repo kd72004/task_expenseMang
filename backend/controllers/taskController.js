@@ -17,7 +17,6 @@ const createTask = async (req, res) => {
       category
     });
 
-    // Create notification for assignee if assigned
     if (assignee) {
       await Notification.create({
         user: assignee,
@@ -79,7 +78,6 @@ const updateTask = async (req, res) => {
       return res.status(404).json({ message: 'Task not found' });
     }
 
-    // Check if assignee is changed
     const assigneeChanged = assignee && String(task.assignee) !== String(assignee);
 
     task = await Task.findByIdAndUpdate(
@@ -87,8 +85,6 @@ const updateTask = async (req, res) => {
       { name, description, priority, deadline, status, assignee, category },
       { new: true, runValidators: true }
     );
-
-    // Notify new assignee if changed
     if (assigneeChanged) {
       await Notification.create({
         user: assignee,
