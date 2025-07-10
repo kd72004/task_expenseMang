@@ -2,9 +2,12 @@
 
 A modern web application for managing tasks and expenses with a beautiful gradient UI and real-time updates.
 
-![Task & Expense Manager](https://img.shields.io/badge/React-19.1.0-blue?style=for-the-badge&logo=react)
+![image](https://github.com/user-attachments/assets/e2109526-87ef-4842-86e7-2cbe99924158)
+
 ![Node.js](https://img.shields.io/badge/Node.js-Express-green?style=for-the-badge&logo=node.js)
+
 ![MongoDB](https://img.shields.io/badge/MongoDB-Database-green?style=for-the-badge&logo=mongodb)
+
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind-CSS-38B2AC?style=for-the-badge&logo=tailwind-css)
 
 ## ✨ Features
