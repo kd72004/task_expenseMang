@@ -3,6 +3,7 @@ import TaskList from './TaskList';
 import TaskForm from './TaskForm';
 import ExpenseList from './ExpenseList';
 import ExpenseForm from './ExpenseForm';
+import Notifications from './Notifications';
 
 
 const Dashboard = ({ user, onLogout }) => {
@@ -125,6 +126,7 @@ const Dashboard = ({ user, onLogout }) => {
               <span className="text-gray-700 font-medium">
                 👋 Welcome, {userData?.name}!
               </span>
+              <Notifications />
               <button
                 onClick={handleLogout}
                 className="bg-gradient-to-r from-red-500 to-pink-500 hover:from-red-600 hover:to-pink-600 text-white px-4 py-2 rounded-xl text-sm font-medium shadow-lg shadow-red-500/25 transition-all duration-200"

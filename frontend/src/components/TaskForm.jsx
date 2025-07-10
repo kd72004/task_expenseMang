@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import api from '../utils/api';
+import api, { fetchUsers } from '../utils/api';
 
 const TaskForm = ({ task, onSave, onCancel }) => {
   const [formData, setFormData] = useState({
@@ -7,10 +7,26 @@ const TaskForm = ({ task, onSave, onCancel }) => {
     description: '',
     priority: 3,
     deadline: '',
-    status: 'pending'
+    status: 'pending',
+    assignee: '',
+    category: ''
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    // Fetch users for assignee dropdown
+    const loadUsers = async () => {
+      try {
+        const usersData = await fetchUsers();
+        setUsers(usersData);
+      } catch (error) {
+        console.error('Failed to load users:', error);
+      }
+    };
+    loadUsers();
+  }, []);
 
   useEffect(() => {
     if (task) {
@@ -20,7 +36,9 @@ const TaskForm = ({ task, onSave, onCancel }) => {
         description: task.description || '',
         priority: task.priority || 3,
         deadline: task.deadline ? new Date(task.deadline).toISOString().split('T')[0] : '',
-        status: task.status || 'pending'
+        status: task.status || 'pending',
+        assignee: task.assignee || '',
+        category: task.category || ''
       });
     }
   }, [task]);
@@ -139,6 +157,41 @@ const TaskForm = ({ task, onSave, onCancel }) => {
               <option value="in-progress">In Progress</option>
               <option value="completed">Completed</option>
             </select>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Assignee
+            </label>
+            <select
+              name="assignee"
+              value={formData.assignee}
+              onChange={handleChange}
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            >
+              <option value="">Select assignee...</option>
+              {users.map(user => (
+                <option key={user._id} value={user._id}>
+                  {user.name} ({user.email})
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Category
+            </label>
+            <input
+              type="text"
+              name="category"
+              value={formData.category}
+              onChange={handleChange}
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              placeholder="Enter category (e.g., Work, Personal, Project)"
+            />
           </div>
         </div>
 

@@ -32,4 +32,25 @@ api.interceptors.response.use(
   }
 );
 
-export default api; 
+export default api;
+
+// New API functions for enhanced features
+export const fetchUsers = async () => {
+  const response = await api.get('/auth/users');
+  return response.data;
+};
+
+export const createTask = async (taskData) => {
+  const response = await api.post('/tasks', taskData);
+  return response.data;
+};
+
+export const updateTask = async (taskId, taskData) => {
+  const response = await api.put(`/tasks/${taskId}`, taskData);
+  return response.data;
+};
+
+export const fetchNotifications = async () => {
+  const response = await api.get('/tasks/notifications');
+  return response.data;
+}; 

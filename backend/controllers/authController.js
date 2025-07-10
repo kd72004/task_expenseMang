@@ -34,10 +34,11 @@ const signup = async (req, res) => {
 };
 
 
-
 const login = async (req, res) => {
   try {
     const { email, password } = req.body;
+
+    // Find user by email and include password for comparison
     const user = await User.findOne({ email }).select('+password');
 
     if (user && (await user.matchPassword(password))) {
@@ -76,8 +77,19 @@ const getProfile = async (req, res) => {
   }
 };
 
+const getAllUsers = async (req, res) => {
+  try {
+    const users = await User.find({}, '_id name email');
+    res.json(users);
+  } catch (error) {
+    console.error('Get all users error:', error);
+    res.status(500).json({ message: 'Server error' });
+  }
+};
+
 module.exports = {
   signup,
   login,
   getProfile,
+  getAllUsers,
 }; 

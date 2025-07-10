@@ -33,6 +33,17 @@ const taskSchema = new mongoose.Schema({
     enum: ['pending', 'in-progress', 'completed'],
     default: 'pending'
   },
+  assignee: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+    required: false
+  },
+  category: {
+    type: String,
+    trim: true,
+    maxlength: [100, 'Category cannot be more than 100 characters'],
+    required: false
+  },
   createdAt: {
     type: Date,
     default: Date.now

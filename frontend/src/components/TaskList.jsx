@@ -7,7 +7,9 @@ const TaskList = ({ onEditTask, onDeleteTask, onStatusChange }) => {
   const [error, setError] = useState('');
   const [filters, setFilters] = useState({
     status: '',
-    priority: ''
+    priority: '',
+    category: '',
+    assignee: ''
   });
   const [searchTerm, setSearchTerm] = useState('');
 
@@ -21,6 +23,8 @@ const TaskList = ({ onEditTask, onDeleteTask, onStatusChange }) => {
       const params = new URLSearchParams();
       if (filters.status) params.append('status', filters.status);
       if (filters.priority) params.append('priority', filters.priority);
+      if (filters.category) params.append('category', filters.category);
+      if (filters.assignee) params.append('assignee', filters.assignee);
       
       const response = await api.get(`/tasks?${params}`);
       setTasks(response.data);
@@ -91,7 +95,7 @@ const TaskList = ({ onEditTask, onDeleteTask, onStatusChange }) => {
     <div className="space-y-6">
     
       <div className="bg-white/80 backdrop-blur-md p-6 rounded-2xl shadow-xl border border-white/20">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-6 gap-4">
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
               Search
@@ -135,6 +139,30 @@ const TaskList = ({ onEditTask, onDeleteTask, onStatusChange }) => {
               <option value="4">4 - Low</option>
               <option value="5">5 - Very Low</option>
             </select>
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Category
+            </label>
+            <input
+              type="text"
+              placeholder="Filter by category..."
+              value={filters.category}
+              onChange={(e) => setFilters({ ...filters, category: e.target.value })}
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Assignee
+            </label>
+            <input
+              type="text"
+              placeholder="Filter by assignee..."
+              value={filters.assignee}
+              onChange={(e) => setFilters({ ...filters, assignee: e.target.value })}
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            />
           </div>
           <div className="flex items-end">
             <button
@@ -185,6 +213,12 @@ const TaskList = ({ onEditTask, onDeleteTask, onStatusChange }) => {
                   <div className="text-sm text-gray-500">
                     <p>Deadline: {new Date(task.deadline).toLocaleDateString()}</p>
                     <p>Created: {new Date(task.createdAt).toLocaleDateString()}</p>
+                    {task.category && (
+                      <p>Category: <span className="font-medium text-gray-700">{task.category}</span></p>
+                    )}
+                    {task.assignee && (
+                      <p>Assignee: <span className="font-medium text-gray-700">{task.assignee.name || task.assignee}</span></p>
+                    )}
                   </div>
                 </div>
                 <div className="flex space-x-2">

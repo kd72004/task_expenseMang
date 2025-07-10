@@ -1,9 +1,10 @@
 const Task = require('../models/Task');
+const Notification = require('../models/Notification');
 
 
 const createTask = async (req, res) => {
   try {
-    const { name, description, priority, deadline, status } = req.body;
+    const { name, description, priority, deadline, status, assignee, category } = req.body;
 
     const task = await Task.create({
       user: req.user._id,
@@ -11,8 +12,19 @@ const createTask = async (req, res) => {
       description,
       priority,
       deadline,
-      status
+      status,
+      assignee,
+      category
     });
+
+    // Create notification for assignee if assigned
+    if (assignee) {
+      await Notification.create({
+        user: assignee,
+        message: `You have been assigned a new task: ${name}`,
+        task: task._id
+      });
+    }
 
     res.status(201).json(task);
   } catch (error) {
@@ -24,11 +36,13 @@ const createTask = async (req, res) => {
 
 const getTasks = async (req, res) => {
   try {
-    const { status, priority } = req.query;
+    const { status, priority, category, assignee } = req.query;
     let query = { user: req.user._id };
 
     if (status) query.status = status;
     if (priority) query.priority = priority;
+    if (category) query.category = { $regex: category, $options: 'i' };
+    if (assignee) query.assignee = assignee;
 
     const tasks = await Task.find(query).sort({ createdAt: -1 });
     res.json(tasks);
@@ -57,7 +71,7 @@ const getTask = async (req, res) => {
 
 const updateTask = async (req, res) => {
   try {
-    const { name, description, priority, deadline, status } = req.body;
+    const { name, description, priority, deadline, status, assignee, category } = req.body;
 
     let task = await Task.findOne({ _id: req.params.id, user: req.user._id });
 
@@ -65,11 +79,23 @@ const updateTask = async (req, res) => {
       return res.status(404).json({ message: 'Task not found' });
     }
 
+    // Check if assignee is changed
+    const assigneeChanged = assignee && String(task.assignee) !== String(assignee);
+
     task = await Task.findByIdAndUpdate(
       req.params.id,
-      { name, description, priority, deadline, status },
+      { name, description, priority, deadline, status, assignee, category },
       { new: true, runValidators: true }
     );
+
+    // Notify new assignee if changed
+    if (assigneeChanged) {
+      await Notification.create({
+        user: assignee,
+        message: `You have been assigned a new task: ${name}`,
+        task: task._id
+      });
+    }
 
     res.json(task);
   } catch (error) {

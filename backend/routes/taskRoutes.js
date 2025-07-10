@@ -9,6 +9,7 @@ const {
   getTaskStats
 } = require('../controllers/taskController');
 const { protect } = require('../middleware/auth');
+const notificationController = require('../controllers/notificationController');
 
 const router = express.Router();
 
@@ -21,6 +22,9 @@ router.route('/')
 
 router.route('/stats')
   .get(getTaskStats);
+
+router.route('/notifications')
+  .get(protect, notificationController.getNotifications);
 
 router.route('/:id')
   .get(getTask)
